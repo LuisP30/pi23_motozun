@@ -1,12 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="static/style.css">
-</head>
-<body>
-    <h1>Seja Bem Vindo</h1>
-</body>
-</html>
+{% extends "global/base.html" %}
+
+{% block css_interno %} {# Bloco para usar CSS interno nas outras páginas #}
+    <style type="text/css">
+        .container
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .secao-com-imagem-de-fundo 
+        {
+            background-color: white;
+            height: 45%; /* Ajuste a altura conforme necessário */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            color: black;
+        }
+        .secao-com-imagem-de-fundo h1, .secao-com-imagem-de-fundo h3
+        {
+           text-align: right;
+           font-size: 305%;
+           text-shadow: 3px 3px 0 gold, 3px 3px 0 gold, 3px 3px 0 gold, 3px 3px 0 gold;
+        }
+        .slogan-texto
+        {
+            width: 50%;
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+            bottom: 10%;
+        }
+        .slogan-texto-menor
+        {
+            display: flex;
+            font-size: small;
+            width: 50%;
+            position: relative;
+            justify-content: end;
+            right: 10%;
+            bottom: 10%;
+        }
+        .cadastro-login
+        {
+            display: flex;
+            justify-content: center;
+            height: 35%;
+            width: 100%;
+            align-items: center;
+            position: relative;
+            gap: 20%;
+            color: gold;
+        }
+        .inicio-auten
+        {
+            border: 2px solid gold;
+            padding: 1%;
+            border-radius: 10px;
+        }
+        /**/
+        .blocos
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            color: gold;
+            position: relative;
+            top: 15%;
+            gap: 50px;
+        }
+        .box
+        {
+            border: 3px solid white;
+            border-radius: 10px;
+            background-color: rgb(19, 176, 179);
+            padding: 1%;
+            text-align: center;
+        }
+    </style>
+{% endblock css_interno %}
+
+{% block titulo %}Início{% endblock titulo %}
+
+{% block conteudo %}
+    <!--Elementos com slogan e imagem de fundo da tela inicial-->
+    <div class="container">
+        <section class="secao-com-imagem-de-fundo">
+            <div class="slogan-texto">
+                <h1>VAMOS COM <br>VOCÊ DO <br>INÍCIO AO FIM</h1>
+            </div>
+            <div class="slogan-texto-menor">
+                <h3>VEM <br> SER <br> ZUN</h3>
+            </div>
+        </section>
+        <!--Elementos de autenticação da tela inicial-->
+        <div class="cadastro-login">
+            <div class="inicio-auten">
+                <h2>CADASTRE-SE</h2>
+            </div>
+            <div class="inicio-auten">
+                <h2>LOGIN</h2>
+            </div>
+        </div>
+
+        <!--Container pai de 3 divs com cor azul claro-->
+        <div class="blocos">
+            <div class="box">
+                <h1>SEJA MOTOTAXISTA MOTOZUN</h1>
+                <b>AUMENTE SEU GANHO COM O NOSSO <br> SISTEMA QUE CONECTA VOCÊ <br> DIRETAMENTE COM SEU CLIENTE</b>
+            </div>
+            <div class="box">
+                <h1>SEJA MOTOTAXISTA MOTOZUN</h1>
+            </div>
+            <div class="box">
+                <h1>SEJA MOTOTAXISTA MOTOZUN</h1>
+            </div>
+        </div>
+    </div>
+{% endblock conteudo %}

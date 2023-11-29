@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'authenticate',
 ]
 
 MIDDLEWARE = [
@@ -104,11 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-<<<<<<< HEAD
 LANGUAGE_CODE = 'pt-br'
-=======
-LANGUAGE_CODE = 'pt-BR'
->>>>>>> 846fc0ea6e3f5a86de378154f52029f7a70ab392
 
 TIME_ZONE = 'America/Sao_Paulo'
 

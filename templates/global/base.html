@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}"> <!--CSS EXTERNO-->
+
+    {% block css_interno %} {# Bloco para usar CSS interno nas outras páginas #}
+
+    {% endblock css_interno %}
+
+    <title>
+        {% block titulo %}{% endblock titulo %} - Motozun {# Bloco para título #}
+    </title>
+
+</head>
+<body>
+
+    {% include "partials/header.html" %}
+
+    <main>
+        {% block conteudo %} {# Bloco para conteúdo #}
+        
+        {% endblock conteudo %}
+    </main>
+
+    <!--{% include "partials/footer.html" %}-->
+
+</body>
+</html>
