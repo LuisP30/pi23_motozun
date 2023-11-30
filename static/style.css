@@ -48,24 +48,26 @@ header ul
     align-items: center;
     list-style: none;
 }
-
 .cadastro-colaborador
 {
     border: 1px;
     border-radius: 20px;
     background-color: #203444;
+    text-align: center;
     padding: 10px;
-    width: 15%;
+    width: 220px;
 }
 .logotipo
 {
-    width: 25%;
+    width: 15%;
     position: relative;
     left: 2%;
 }
 .menu
 {
-    width: 55%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
 }
 
 /*Fim de estilização do cabeçalho*/
