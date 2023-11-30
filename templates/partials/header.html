@@ -1,12 +1,13 @@
+{% load static %}
 <header>
     <div class="logotipo">
-        <img src="" alt="">
+        <img src="{% static 'img/logotipo.png' %}" height="55px" width="175px"  alt="Logotipo Motozun">
     </div>
 
-    <nav>
+    <nav class="menu">
         <ul>
             <li>INÍCIO</li>
-            <li id="solicitar">SOLICITAR VIAGEM</li>
+            <li>SOLICITAR VIAGEM</li>
             <li>CONTATO</li>
         </ul>
     </nav>

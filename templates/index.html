@@ -1,85 +1,54 @@
 {% extends "global/base.html" %}
 
 {% block css_interno %} {# Bloco para usar CSS interno nas outras páginas #}
+
     <style type="text/css">
         .container
         {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            margin-top: 4%;
+            height: 100%;
+            width: 100%;
         }
         .secao-com-imagem-de-fundo 
         {
-            background-color: white;
-            height: 45%; /* Ajuste a altura conforme necessário */
+            background-image: url('static/img/image2.jpg');
+            background-size: 100%; /* Ajusta o tamanho da imagem para cobrir todo o contêiner */
+            background-position: 7%; /* Centraliza a imagem no contêiner */
+            height: 50%; /* Ajuste a altura conforme necessário */
             display: flex;
+            justify-content: space-between;
+            box-shadow: 0 1px 15px black;
             align-items: center;
-            justify-content: center;
             width: 100%;
-            color: black;
+            color: antiquewhite;
         }
         .secao-com-imagem-de-fundo h1, .secao-com-imagem-de-fundo h3
         {
            text-align: right;
            font-size: 305%;
-           text-shadow: 3px 3px 0 gold, 3px 3px 0 gold, 3px 3px 0 gold, 3px 3px 0 gold;
+           text-shadow: 2px 2px 2px orange, -2px 2px 2px gold, 2px -2px 2px orange, 2px -2px 2px gold;
         }
-        .slogan-texto
+        .slogan-texto-esquerdo
         {
-            width: 50%;
-            display: flex;
-            justify-content: space-around;
             position: relative;
-            bottom: 10%;
+            left: 3%;
+            width: 25%;
+            display: flex;
         }
-        .slogan-texto-menor
+        .slogan-texto-direito
         {
             display: flex;
-            font-size: small;
-            width: 50%;
-            position: relative;
-            justify-content: end;
-            right: 10%;
-            bottom: 10%;
+            width: 25%;
+            
         }
-        .cadastro-login
+        main
         {
-            display: flex;
-            justify-content: center;
-            height: 35%;
+            display: grid;
             width: 100%;
-            align-items: center;
-            position: relative;
-            gap: 20%;
-            color: gold;
-        }
-        .inicio-auten
-        {
-            border: 2px solid gold;
-            padding: 1%;
-            border-radius: 10px;
-        }
-        /**/
-        .blocos
-        {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            color: gold;
-            position: relative;
-            top: 15%;
-            gap: 50px;
-        }
-        .box
-        {
-            border: 3px solid white;
-            border-radius: 10px;
-            background-color: rgb(19, 176, 179);
-            padding: 1%;
-            text-align: center;
+            height: 100%;
+
         }
     </style>
 {% endblock css_interno %}
@@ -90,35 +59,13 @@
     <!--Elementos com slogan e imagem de fundo da tela inicial-->
     <div class="container">
         <section class="secao-com-imagem-de-fundo">
-            <div class="slogan-texto">
-                <h1>VAMOS COM <br>VOCÊ DO <br>INÍCIO AO FIM</h1>
+            <div class="slogan-texto-esquerdo">
+                <h1>À DISTÂNCIA <br>DE <br>UM TOQUE</h1>
             </div>
-            <div class="slogan-texto-menor">
-                <h3>VEM <br> SER <br> ZUN</h3>
+            <div class="slogan-texto-direito">
+                <h1>MOTOTÁXI <br> ONLINE</h1>
             </div>
         </section>
-        <!--Elementos de autenticação da tela inicial-->
-        <div class="cadastro-login">
-            <div class="inicio-auten">
-                <h2>CADASTRE-SE</h2>
-            </div>
-            <div class="inicio-auten">
-                <h2>LOGIN</h2>
-            </div>
-        </div>
 
-        <!--Container pai de 3 divs com cor azul claro-->
-        <div class="blocos">
-            <div class="box">
-                <h1>SEJA MOTOTAXISTA MOTOZUN</h1>
-                <b>AUMENTE SEU GANHO COM O NOSSO <br> SISTEMA QUE CONECTA VOCÊ <br> DIRETAMENTE COM SEU CLIENTE</b>
-            </div>
-            <div class="box">
-                <h1>SEJA MOTOTAXISTA MOTOZUN</h1>
-            </div>
-            <div class="box">
-                <h1>SEJA MOTOTAXISTA MOTOZUN</h1>
-            </div>
-        </div>
     </div>
 {% endblock conteudo %}

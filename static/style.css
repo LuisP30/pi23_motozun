@@ -1,3 +1,5 @@
+
+
 *
 {
     padding: 0;
@@ -10,11 +12,12 @@ html
     width: 100%;
 }
 body{
-    color: white;
+    color: #FFFFF3;
     background-color: #203444;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 100%;
     height: 100%;
+
 }
 
 /*Estilização do cabeçalho*/
@@ -24,13 +27,14 @@ header
     display: flex;
     justify-content: center;
     background-color: #FFFFF3;
-    color: #f8b248;
+    color: rgb(255, 189, 67);
     align-items: center;
     white-space: nowrap;
     width: 100%;
     position: fixed;
-    height: 65px;
-    gap: 25%;
+    top: 0;
+    height: 10%;
+    gap: 150px;
     font-weight: bold;
     box-shadow: 0 1px 15px rgb(109, 109, 109);
     z-index: 2;
@@ -40,7 +44,7 @@ header
 header ul
 {
     display: flex;
-    gap: 35%;
+    gap: 145px;
     align-items: center;
     list-style: none;
 }
@@ -49,8 +53,19 @@ header ul
 {
     border: 1px;
     border-radius: 20px;
-    background-color: #27343E;
+    background-color: #203444;
     padding: 10px;
+    width: 15%;
+}
+.logotipo
+{
+    width: 25%;
+    position: relative;
+    left: 2%;
+}
+.menu
+{
+    width: 55%;
 }
 
 /*Fim de estilização do cabeçalho*/
