@@ -7,15 +7,17 @@
     <nav class="menu">
         <ul>
             <li>INÍCIO</li>
-            <li>SOLICITAR VIAGEM</li>
+            <a href="{% url "core:solicitar" %}"><li>SOLICITAR VIAGEM</li></a>
             <li>CONTATO</li>
         </ul>
     </nav>
-
-    <div class="cadastro-colaborador">
-        <div class="botao-colaborador">
-            <p>SEJA COLABORADOR</p>
+    {% if user.is_authenticated %}
+     Tem algo errado
+    {% else %}
+        <div class="cadastro-colaborador">
+            <div class="botao-colaborador">
+                <p>SEJA COLABORADOR</p>
+            </div>
         </div>
-    </div>
-
+    {% endif %}
 </header>

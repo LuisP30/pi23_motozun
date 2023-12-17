@@ -4,6 +4,7 @@
     margin: 0;
     box-sizing: border-box;
 }
+
 html
 {
     height: 100%;
@@ -14,6 +15,15 @@ body
     width: 100%;
     height: 100%;
     background-color: #27343E;
+}
+main
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
 }
 /*Estilização de cabeçalho*/
 header
@@ -32,6 +42,11 @@ header
     white-space: nowrap;
     align-items: center;
 
+}
+a:visited, a
+{
+    text-decoration: none;
+    color: #FFB923;
 }
 .logotipo
 {
@@ -82,8 +97,8 @@ ul
     height: 70%;
     display: flex;
     align-items: center;
-    color: black;
-    text-shadow: 4px 1px 0.2px gold;
+    color: #FFB923;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 3);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .secao-com-texto

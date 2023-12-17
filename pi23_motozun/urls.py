@@ -4,7 +4,7 @@ from core.views import home
 
 urlpatterns = [
     path('', home),
-    path('viagem/', include('core.urls')),
+    path('solicitar/', include('core.urls')),
     path('authenticate/', include('authenticate.urls')),
     path('admin/', admin.site.urls),
 
