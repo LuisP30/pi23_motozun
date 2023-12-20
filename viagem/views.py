@@ -5,3 +5,6 @@ def home(request):
 
 def solicitacao(request):
     return render(request, 'solicitacao.html')
+
+def cadastro(request):
+    return render (request, 'cadastro00.html')
