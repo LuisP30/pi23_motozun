@@ -35,10 +35,7 @@
             display: flex;
             flex-direction: column;
         }
-        .container-inputs
-        {
-            
-        }
+
         .input-viagem
         {
             width: 100%;
@@ -56,23 +53,23 @@
 {% include "partials/secao-fundo.html" %}
 <div class="container">
     <section class="container-viagem">
-        <form action="">
+        <form action="" method="POST">
             <div class="ponto-viagem">
-                <label for=""><h1>SELECIONE O PONTO DE PARTIDA</h1></label>
+                <label for="partida"><h1>SELECIONE O PONTO DE PARTIDA</h1></label>
                 <br>
                 <div class="container-inputs">
-                    <input class="input-viagem" type="text">
+                    <input class="input-viagem" type="text" name="partida">
                 </div>
             </div>
             <div class="ponto-viagem">
                 <br>
-                <label for=""><h1>SELECIONE O PONTO DE DESTINO</h1></label>
+                <label for="destino"><h1>SELECIONE O PONTO DE DESTINO</h1></label>
                 <br>
                 <div class="container-inputs">
-                    <input class="input-viagem" type="text">
-
+                    <input class="input-viagem" type="text" name="destino">
                 </div>
             </div>
+            <input type="submit" value="Solicitar">
         </form>
     </section>
 </div>
