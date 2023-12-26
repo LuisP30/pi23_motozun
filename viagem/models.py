@@ -1,5 +1,5 @@
 from django.db import models
-from authenticate.models import Passageiro, Mototaxista
+from contas.models import Passageiro, Mototaxista
 
 class Solicitacao(models.Model):
     passageiro = models.ForeignKey(Passageiro, on_delete = models.CASCADE)

@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.db import models
 
 class MyUserManager (BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -30,6 +30,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     EMAIL_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name']
 
+
     objects = MyUserManager()
 
     def __str__(self):
@@ -40,3 +41,12 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     
     def get_short_name(self):
         return self.first_name
+    
+class Mototaxista(models.Model):
+    imagem = models.ImageField('imagem', upload_to='users-img')
+    disponivel = models.BooleanField('Disponivel' , null=False, default=False)
+    usuario = models.ForeignKey(MyUser, null=False, on_delete=models.CASCADE)
+    
+class Passageiro(models.Model):
+    endereço = models.CharField('Endereço', max_length=15, blank=False, null=False)
+    usuario = models.ForeignKey(MyUser, null=False, on_delete=models.CASCADE)
