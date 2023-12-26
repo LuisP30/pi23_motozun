@@ -5,12 +5,18 @@
                 <li><h2>ACESSO CLIENTE</h2></li>
                 <li><p>Consulte suas Viagens</p></li>
                 <li><p>Acesse sua Conta</p></li>
-                <li><p>Cadastre-se</p></li>
+                {% if not user.is_authenticated %}
+                <li><a href="{% url 'cadastro' %}">Cadastre-se</a></li>
+                {% endif %}
+                
             </ul>
             <ul>
                 <li><h2>SOBRE NÓS</h2></li>
                 <li><p>Trabalhe Conosco</p></li>
                 <li><p>Quem somos</p></li>
+                {% if not user.is_authenticated %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
