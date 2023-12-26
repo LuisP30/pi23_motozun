@@ -10,4 +10,5 @@ urlpatterns = [
     path('', solicitacao, name='solicitar'),
     path('cadastro/', cadastro, name='cadastro'),
     path('cadastromoto/', cadastromoto, name='cadastro_mototaxi'),
+    path('perfil/', perfil, name='perfil'),
 ]

@@ -11,6 +11,9 @@ def solicitacao(request):
 def cadastro(request):
     return render (request, 'cadastro00.html')
 
+def perfil(request):
+    return render (request, 'perfil.html')
+
 #_________ CRUD MOTOTAXI ______
 def cadastromoto(request):
     form = mototaxiform(request.POST or None)
