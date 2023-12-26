@@ -64,3 +64,16 @@ def tela_viagem(request, id):
 
 def cadastro(request):
     return render (request, 'cadastro00.html')
+
+#_________ CRUD MOTOTAXI ______
+# def cadastromoto(request):
+#     form = mototaxiform(request.POST or None)
+
+#     if form.is_valid():
+#         form.save()
+#         return redirect('cadastro')
+    
+#     contexto = {
+#         'form_mototaxi':form
+#     }
+#     return render (request, 'cadastro_mototaxi.html', contexto)

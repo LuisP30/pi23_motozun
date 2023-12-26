@@ -1,0 +1,49 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+{% block css_interno %}
+<style type="text/css">
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-style: oblique;
+        background-color: #F9A72B;
+        margin-top: 200px;
+        width: 100px;
+        height: 300px;
+        font-size: 20px;
+    }
+    form{
+        background-color: #F9A72B;
+        
+    }
+    /* .conteudo{
+        margin-top: 200px;
+        background-color: #F9A72B;
+        width: 300px;
+        
+    } */
+</style>
+
+{% endblock css_interno %}
+
+
+{% block titulo %}Cadastre-se!{% endblock titulo %}
+
+
+{% block conteudo %}
+<p> cadastro moto</p>
+<div class="conteudo">
+ <div class="container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form_mototaxi }}
+        <p><input type="submit" value="cadastrar"></p>
+    </form>
+
+ </div>
+</div>
+{% endblock conteudo %}

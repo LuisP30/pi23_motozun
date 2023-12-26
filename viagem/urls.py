@@ -1,5 +1,8 @@
 from django.urls import path
+from django.contrib import admin
 from .views import *
+from viagem.views import *
+from django.contrib.auth.views import LoginView
 
 app_name = 'viagem'
 
