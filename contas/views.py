@@ -6,6 +6,7 @@ from .forms import CustomUserCreationForm
 
 
 
+
 from contas.forms import CustomUserCreationForm
 
 
@@ -43,3 +44,5 @@ def logout_view(request):
     logout(request)
     return redirect('home')
 
+def escolhercadastro(request):
+    return render (request, 'escolhercadastro.html')

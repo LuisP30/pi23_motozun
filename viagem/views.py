@@ -3,6 +3,7 @@ from .models import *
 from django.http import HttpResponse
 from rolepermissions.roles import assign_role
 from pi23_motozun import roles
+from contas import models
 
 def home(request):
     # assign_role(request.user, roles.Mototaxista_Role)
@@ -65,6 +66,14 @@ def tela_viagem(request, id):
 def cadastro(request):
     return render (request, 'cadastro00.html')
 
+def perfil(request):
+
+    listar_dados = models.MyUser.objects.all()
+    contexto = {
+        'listar_dados': listar_dados
+    }
+    return render (request, 'perfil.html', contexto)
+
 #_________ CRUD MOTOTAXI ______
 # def cadastromoto(request):
 #     form = mototaxiform(request.POST or None)
@@ -77,3 +86,4 @@ def cadastro(request):
 #         'form_mototaxi':form
 #     }
 #     return render (request, 'cadastro_mototaxi.html', contexto)
+

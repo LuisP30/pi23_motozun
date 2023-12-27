@@ -7,6 +7,7 @@
     .container{
         display: flex;
         flex-direction: column;
+        gap: 15px;
         justify-content: center;
         align-items: center;
         font-style: oblique;
@@ -18,14 +19,23 @@
     }
     form{
         background-color: #F9A72B;
-        
+        font-weight: bold;
+        width: 200px;
+        margin-left: 20px;
+        margin-right: 20px;
+        align-items: center;
     }
-    /* .conteudo{
-        margin-top: 200px;
-        background-color: #F9A72B;
+    input{
+        border-radius: 15px;
+        gap: 20px;
+        text-align: center;
+        height: 30px;
         width: 300px;
-        
-    } */
+        font-size: 15px;
+        text-transform: uppercase ;
+        background-color: #F9A72B;
+    }
+
 </style>
 
 {% endblock css_interno %}
@@ -35,9 +45,10 @@
 
 
 {% block conteudo %}
-<p> cadastro moto</p>
-<div class="conteudo">
+
+
  <div class="container">
+    <p> cadastro mototaxista</p>
     <form method="post">
         {% csrf_token %}
         {{ form_mototaxi }}
@@ -45,5 +56,5 @@
     </form>
 
  </div>
-</div>
+
 {% endblock conteudo %}

@@ -1,13 +1,42 @@
 {% load static %}
+{% block css_interno %}
+<style type="text/css">
+    .secao-com-imagem{
+        margin-top: -55px;
+        position: absolute;
+    }
+    h1{
+        margin-top: -2cm;
+        font-size: 50px;
+        border: 3px, solid, #F9A72B;
+        font-weight: bolder;
+        text-shadow: 5px 4px #27343E;
+    }
+    .vem{
+        margin-top: -2cm;
+        text-decoration: #27343E ;
+        font-size: 70px;
+        text-shadow: 5px 4px #27343E;
+        font-weight: bolder;
+    }
+    .homem{
+        margin-top: 10px;
+        position: relative;
+        background-color: #27343e00;
+    }
+</style>
+{% endblock %}
 <section class="secao-com-imagem">
     <section class="secao-com-texto">
-        <h1>À DISTÂNCIA <br>DE <br> UM CLIQUE</h1>
+        <h1> VAMOS COM <br> VOCÊ DO  <br>INICIO AO FIM</h1>
         <section class="secao-com-pessoa">
-            <img src="{% static 'img/homem-apontando-para-o-lateral.png' %}" alt="Imagem com homem apontando para o slogan ao lado esquerdo" height="260px" width="185px">
+            <img class="homem" src="{% static 'img/homem_apontando.png' %}" alt="Imagem com homem apontando para o slogan ao lado esquerdo" width="300px">
         </section>
     </section>
     <section class="secao-com-texto-menor">
-        <h1>MOTO TÁXI <br> ONLINE</h1>
+        <p class="vem">#VEM </p>
+        <p class="vem">SER </p>
+        <p class="vem">ZUN</p>
     </section>
 </section>
 <hr>

@@ -3,16 +3,38 @@
 
 {% block css_interno %}
     <style type="text/css">
-        .anuncio-1
-        {
-            width: 400px;
-            height:  80%;
-            border: 3px solid white;
-            background-color: #00C2C3;
-            color: gold;
-            gap: 50px;
+        footer{
+            margin-top: 110%;
+            height: 10%;
+            position: sticky;
+             bottom: 0;
+             
+            left: 0;
         }
         
+        .imagem{
+            margin-top: 500px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+        }
+        .anuncio-1{
+            margin-top: 50px;
+        }
+        .anuncio-2{
+            margin-top: 100px;
+        }
+        .anuncio-3{
+            margin-top: 100px;
+        }
+        /* .linha-vertical{
+            height: 100px;
+            border-left: 2px solid #F9A72B;
+            display: flex;
+            justify-content: center;
+            margin-right: center;
+        } */
     </style>
 
 {% endblock css_interno %}
@@ -20,8 +42,12 @@
 {% block titulo %}{% endblock titulo %}
 
 {% block conteudo %}
-
-
 {% include "partials/secao-fundo.html" %}
-
+<div class="imagem">
+    <a href="{% url 'cadastro' %}"><img class="anuncio-1" src="{% static 'img/anuncio 1.png' %}" alt="" width="750px"></a>
+    <div class="linha-vertical"></div>
+    <a href="{% url 'escolhercadastro' %}"><img class="anuncio-2" src="{% static 'img/anuncio 2.png' %}" alt="" width="750px"></a>
+    <div class="linha-vertical"></div>
+    <img class="anuncio-3" src="{% static 'img/anuncio 3.png' %}" alt="" width="750px">
+</div>
 {% endblock conteudo %}
