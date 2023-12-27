@@ -66,13 +66,6 @@ def tela_viagem(request, id):
 def cadastro(request):
     return render (request, 'cadastro00.html')
 
-def perfil(request):
-
-    listar_dados = models.MyUser.objects.all()
-    contexto = {
-        'listar_dados': listar_dados
-    }
-    return render (request, 'perfil.html', contexto)
 
 #_________ CRUD MOTOTAXI ______
 # def cadastromoto(request):
