@@ -1,19 +1,38 @@
 {% load static %}
+{% block css_interno%}
+<style type="text/css">
+    a{
+        text-decoration: none;
+        color: #F9A72B;
+    }
+    .botao-colaborador{
+        height: 40px;
+        border-radius: 15px;
+    }
+    
+</style>
+{% endblock %}
 <header>
     <div class="logotipo">
-        LOGOTIPO
+        <a href=""><img src="{% static 'img/logomarca.png' %}" alt="" width="120px"></a>
     </div>
 
     <nav class="menu">
         <ul>
             <li>INÍCIO</li>
-            <a href="{% url "viagem:solicitar" %}"><li>SOLICITAR VIAGEM</li></a>
+            <a href="{% url 'viagem:solicitacao_viagem' %}"><li>SOLICITAR VIAGEM</li></a>
             <li>CONTATO</li>
         </ul>
     </nav>
         <div class="cadastro-colaborador">
             <div class="botao-colaborador">
+                {% if not user.is_authenticated %}
                 <p>SEJA COLABORADOR</p>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <a href="{% url 'sair' %}"><li>Sair</li></a>
+                {% endif %}
+  
             </div>
         </div>
 

@@ -7,8 +7,8 @@ from django.contrib.auth.views import LoginView
 app_name = 'viagem'
 
 urlpatterns = [
-    path('', solicitacao, name='solicitar'),
-    path('cadastro/', cadastro, name='cadastro'),
-    path('cadastromoto/', cadastromoto, name='cadastro_mototaxi'),
-    path('perfil/', perfil, name='perfil'),
+    path('', solicitacao_viagem, name='solicitacao_viagem'), # URL em que o passageiro faz a solicitação
+    path('mototaxista-solicitacoes/', mototaxista_aceite, name='mototaxista-solicitacoes'), # URL em que o Mototaxista ver as solicitações
+    path('tela-viagem/<int:id>', tela_viagem, name='tela_viagem'), # URL em que passageiro e mototaxista são redirecionados quando possuem uma viagem em andamento
+    path('perfil/', perfil, name="perfil" ) #pagina de perfil
 ]

@@ -1,0 +1,79 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+{% block css_interno %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <style type="text/css">
+        body
+        {
+            background-color: #27343E;
+        }
+        .imagem{
+            position: relative;
+            margin-top: 120px;
+           
+        }
+        .container{
+            margin-top: 75px;
+            margin-bottom: 200px;
+            position: absolute;
+        }
+       
+        h4{
+            font-size: 1cm;
+            text-align: center;
+            color: #27343E;
+        }
+        .fazer{
+            text-decoration: none;
+            color: #27343E;
+        }
+        .coluna{
+             background-color: #F9A72B;
+             border-radius: 30px;
+             width: 500px;
+        }
+        .btn{
+            background-color: #27343E;
+        }
+        .botao{
+            color: white;
+            text-align: center;
+            font-size: 15px;
+            height: 10px;
+            font-weight: bolder;
+        }
+        .row{
+            color: #27343E;
+            font-weight:bold;
+            height: 440px;
+            margin-top: -10px;
+        }
+    </style>
+    {% block title %}<title>Cadastro</title> {% endblock title %}
+{% endblock css_interno %}
+
+{% block conteudo %}
+
+<img class="imagem" src="{% static 'img/logomarca.png'%}" alt="logomarca" width="250px">
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div class="row g-lg-5 py-5">
+            <div class="coluna col-md-10 mx-auto col-lg-5 p-4 p-md-5 rounded-4  shadow-sm">
+    <form class="row" method="post" action="{% url 'cadastro' %}">
+        {% csrf_token %}
+        <h4>Criar uma Conta</h4>
+        {{ form}}
+        <button class="btn btn-primary mt-3" type="submit"> <p class="botao">REGISTRAR</p></button>
+        <div class="mt-3">
+            <span>
+                <a  href="{% url 'login' %}" class="link-dark"><p class="fazer"><strong>Fazer Login ←</strong></p></a>
+                
+            </span>
+        </div>
+    </form>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+{% endblock conteudo%}
+
