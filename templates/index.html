@@ -13,7 +13,7 @@
         }
         
         .imagem{
-            margin-top: 500px;
+            margin-top: 10px;
             display: flex;
             justify-content: center;
             flex-direction: column;
@@ -23,18 +23,64 @@
             margin-top: 50px;
         }
         .anuncio-2{
-            margin-top: 100px;
+            margin-top: -140px;
         }
         .anuncio-3{
-            margin-top: 100px;
+            margin-top: -80px;
         }
-        /* .linha-vertical{
+        .linha-vertical{
+            border-left: 2px solid #00C2C3;
+            color: #F9A72B;
             height: 100px;
-            border-left: 2px solid #F9A72B;
+        }
+        .linha-vertical-2{
+            border-left: 2px solid #00C2C3;
+            color: #F9A72B;
+            height: 100px;
+            margin-top: -50px;
+        }
+        .alinhamento{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .texto{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 60px;
+            text-shadow: 4px 2px black;
+            font-weight: bolder;
+        }
+        .inicial{
             display: flex;
             justify-content: center;
-            margin-right: center;
-        } */
+            flex-direction: row;
+            align-items: center;
+            margin-top: 500px;
+            
+        }
+        .cadastre , .logue{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: row;
+            border: 3px solid #F9A72B;
+            border-radius: 20px;
+            margin-right: 40px;
+            margin-left: 20px;
+            
+        }
+        .grande{
+            font-size: 1.10cm;
+            text-decoration: underline;
+        }
+        .setinha{
+            background-color: #F9A72B;
+            width: 65px;
+            border-radius: 50px;
+            text-align: center;
+            
+        }
     </style>
 
 {% endblock css_interno %}
@@ -43,11 +89,37 @@
 
 {% block conteudo %}
 {% include "partials/secao-fundo.html" %}
+<div class="inicial">
+    <div class="cadastre"> 
+        <h2 class="grande">CADASTRE-SE</h2>
+        <a class="setinha" href="{% url 'cadastro'%}"><img src="{% static 'img/setinha.png'%}" alt=" setinha para redirecionar para cadastro" width="50px"></a>
+    </div>
+    <div class="logue"> 
+        <h2 class="grande">LOGIN</h2> 
+        <a class="setinha" href="{% url 'cadastro'%}"><img src="{% static 'img/setinha.png'%}" alt=" setinha para redirecionar para cadastro" width="50px"></a>
+    </div>
+</div>
+
 <div class="imagem">
     <a href="{% url 'cadastro' %}"><img class="anuncio-1" src="{% static 'img/anuncio 1.png' %}" alt="" width="750px"></a>
-    <div class="linha-vertical"></div>
+    <div class="alinhamento">
+        <div class="linha-vertical" width="4px" size="100"></div>
+    
+        <h2 class="texto"> SEGURANÇA </h2>
+    </div>
+    <div class="alinhamento">
+        <div class="linha-vertical" width="4px" size="100"></div>
+    </div>
     <a href="{% url 'escolhercadastro' %}"><img class="anuncio-2" src="{% static 'img/anuncio 2.png' %}" alt="" width="750px"></a>
-    <div class="linha-vertical"></div>
+    <div class="alinhamento">
+        <div class="linha-vertical-2" width="4px" size="50"></div>
+        <div class="linha-vertical" width="4px" size="100"></div>
+    
+        <h2 class="texto"> PRATICIDADE </h2>
+    </div>
+    <div class="alinhamento">
+        <div class="linha-vertical" width="4px" size="100"></div>
+    </div>
     <img class="anuncio-3" src="{% static 'img/anuncio 3.png' %}" alt="" width="750px">
 </div>
 {% endblock conteudo %}
