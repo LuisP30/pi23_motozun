@@ -3,16 +3,16 @@ from .models import *
 from django.http import HttpResponse
 from rolepermissions.roles import assign_role
 from pi23_motozun import roles
-from contas import models
+
 
 def home(request):
     # assign_role(request.user, roles.Mototaxista_Role)
-    if request.user.groups.filter(name='mototaxista_role').exists():
+    if request.user.groups.filter(name='mototaxista__role').exists():
         mototaxista = Mototaxista.objects.filter(usuario_id=request.user.id).get()
         print(mototaxista)
-        mototaxista_aceitou_solicitacao = Mototaxista_Aceite.objects.filter(mototaxista = mototaxista, aceite = True).get()
-        print(mototaxista_aceitou_solicitacao)
-
+        viagem_em_andamento = Conclusao_Viagem.objects.filter(concluido=False, solicitacao__in=Mototaxista_Aceite.objects.filter(mototaxista=mototaxista, aceite=True).values('solicitacao'))
+        if viagem_em_andamento:
+            return HttpResponse('Você possui uma viagem em andamento')
         return HttpResponse('Está funcionando')
     return render(request, 'index.html')
 
