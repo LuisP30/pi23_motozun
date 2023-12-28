@@ -21,6 +21,10 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True,max_length=255)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    endereco = models.CharField(max_length=100, null=True)
+    contato = models.CharField(max_length=11, null=True)
+    disponibilidade = models.BooleanField(null=True, default = False)
+    imagem = models.ImageField(null = True, upload_to='users-img')
     #verifica se o usuario está ativo ou não.
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -41,12 +45,3 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     
     def get_short_name(self):
         return self.first_name
-    
-class Mototaxista(models.Model):
-    imagem = models.ImageField('imagem', upload_to='users-img')
-    disponivel = models.BooleanField('Disponivel' , null=False, default=False)
-    usuario = models.ForeignKey(MyUser, null=False, on_delete=models.CASCADE)
-    
-class Passageiro(models.Model):
-    endereço = models.CharField('Endereço', max_length=15, blank=False, null=False)
-    usuario = models.ForeignKey(MyUser, null=False, on_delete=models.CASCADE)
