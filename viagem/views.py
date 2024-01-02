@@ -8,7 +8,7 @@ from pi23_motozun import roles
 def home(request):
     # assign_role(request.user, roles.Mototaxista_Role)
     if request.user.groups.filter(name='mototaxista__role').exists():
-        mototaxista = Mototaxista.objects.filter(usuario_id=request.user.id).get()
+        mototaxista = mototaxista.objects.filter(usuario_id=request.user.id).get()
         print(mototaxista)
         viagem_em_andamento = Conclusao_Viagem.objects.filter(concluido=False, solicitacao__in=Mototaxista_Aceite.objects.filter(mototaxista=mototaxista, aceite=True).values('solicitacao'))
         if viagem_em_andamento:
@@ -24,7 +24,7 @@ def solicitacao_viagem(request):
         return redirect()
     if request.POST:
         user_id = request.user.id
-        passageiro = Passageiro.objects.filter(id = user_id)
+        passageiro = passageiro.objects.filter(id = user_id)
         ponto_partida = request.POST["ponto_partida"]
         ponto_destino = request.POST["ponto_destino"]
         solicitacao = Solicitacao(
@@ -53,8 +53,8 @@ def mototaxista_aceite(request):
 def tela_viagem(request, id):
     mototaxista_id = request.user.id
     solicitacao = Solicitacao.objects.filter(id=id)
-    mototaxista = Mototaxista.objects.filter(id = mototaxista_id)
-    mototaxista_aceite = Mototaxista(
+    mototaxista = mototaxista.objects.filter(id = mototaxista_id)
+    mototaxista_aceite = mototaxista(
         solicitacao = solicitacao,
         mototaxista = mototaxista,
         aceite = True

@@ -4,8 +4,11 @@
     .secao-com-imagem{
         margin-top: -40px;
         position: absolute;
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
     }
-    h1{
+    .com-vc{
         margin-top: 0cm;
         font-size: 50px;
         border: 3px, solid, #F9A72B;
@@ -24,19 +27,86 @@
         position: relative;
         background-color: #27343e00;
     }
+    @media screen and (max-width: 1360px){ 
+        .vem{
+            font-size: 50px;
+        }
+        .com-vc{
+            font-size: 35px;
+            margin-top: 35px;
+        }
+        .homem{
+            width: 250px;
+        }
+        
+    }
+    @media screen and (max-width: 960px){
+        .vem{
+            font-size: 30px;
+        }
+        .secao-com-pessoa{
+            margin-left: 10px;
+        }
+    }
+    @media screen and (max-width: 670px){
+        .vem{
+            display: none;
+        }
+        .secao-com-pessoa{
+            margin-left: 10px;
+        }
+        .com-vc{
+            font-size: 25px;
+        }
+        .homem{
+            width: 200px;
+        }
+    }
+    @media screen and (min-width:301px) and (max-width: 410px){
+        .homem{
+            display: none;
+        }
+        .com-vc{
+            font-size: 35px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    }
+    @media screen and (max-width: 300px) {
+        .homem{
+            width: 80px;
+        }
+        .secao-com-imagem{
+            background-image: none;
+            height: 200px;
+            margin: 0px;
+            position: static;
+            margin-top: 10px;
+            justify-content: center;
+            
+        }
+        .com-vc{
+            margin-top: 10px;
+            font-size: 13px;
+        }
+        .secao-com-texto-menor{
+            display: none;
+        }
+
+    }
 </style>
 {% endblock %}
 <section class="secao-com-imagem">
     <section class="secao-com-texto">
-        <h1> VAMOS COM <br> VOCÊ DO  <br>INICIO AO FIM</h1>
+        <h1 class="com-vc"> VAMOS COM <br> VOCÊ DO  <br>INICIO AO FIM</h1>
         <section class="secao-com-pessoa">
             <img class="homem" src="{% static 'img/homem_apontando.png' %}" alt="Imagem com homem apontando para o slogan ao lado esquerdo" width="300px">
         </section>
     </section>
     <section class="secao-com-texto-menor">
-        <p class="vem">#VEM </p>
-        <p class="vem">SER </p>
-        <p class="vem">ZUN</p>
+        <div class="vem-div"><p class="vem">#VEM </p></div>
+        <div class="vem-div"><p class="vem">SER </p></div>
+        <div class="vem-div"><p class="vem">ZUN</p></div>
     </section>
 </section>
 <hr>
