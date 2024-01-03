@@ -1,13 +1,13 @@
 from rolepermissions.roles import AbstractUserRole
 
-class Mototaxista_Role(AbstractUserRole):
+class Mototaxista(AbstractUserRole):
     available_permissions = {'ver_solicitacoes': True, 'concluir_viagem': True}
 
-class Passageiro_Role(AbstractUserRole):
+class Passageiro(AbstractUserRole):
     available_permissions = {'fazer_solicitacoes': True}
 
 # ------- Como adicionar um usuário a um grupo : -------
-    
+
 # from rolepermissions.roles import assign_role
 # assign_role(usuário, 'mototaxista_role') tem que passar dois parâmetros
 

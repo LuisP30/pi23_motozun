@@ -1,54 +1,47 @@
 from django.shortcuts import render, redirect
 from .models import *
 from django.http import HttpResponse
-from rolepermissions.roles import assign_role
+from rolepermissions.roles import assign_role, get_user_roles
 from pi23_motozun import roles
 
 
 def home(request):
-    # assign_role(request.user, roles.Mototaxista_Role)
-    if request.user.groups.filter(name='mototaxista__role').exists():
-        mototaxista = Mototaxista.objects.filter(usuario_id=request.user.id).get()
-        print(mototaxista)
+    # assign_role(request.user, roles.Mototaxista)
+    if request.user.groups.filter(name='mototaxista').exists():
+        mototaxista = MyUser.objects.filter(id=request.user.id).get()
         viagem_em_andamento = Conclusao_Viagem.objects.filter(concluido=False, solicitacao__in=Mototaxista_Aceite.objects.filter(mototaxista=mototaxista, aceite=True).values('solicitacao'))
         if viagem_em_andamento:
-            return HttpResponse('Você possui uma viagem em andamento')
-        return HttpResponse('Está funcionando')
+            return redirect('')
     return render(request, 'index.html')
 
 def solicitacao_viagem(request):
-    
-    conclusao_viagem = Conclusao_Viagem.objects.filter(concluido = False).get()
-    # conclusao_viagem.solicitacao.passageiro.usuario.id
-    if conclusao_viagem is not None:
-        return redirect()
-    if request.POST:
-        user_id = request.user.id
-        passageiro = Passageiro.objects.filter(id = user_id)
-        ponto_partida = request.POST["ponto_partida"]
-        ponto_destino = request.POST["ponto_destino"]
-        solicitacao = Solicitacao(
-            passageiro = passageiro,
-            ponto_partida = ponto_partida,
-            ponto_destino = ponto_destino
-        )
-        solicitacao.save()
-    return render(request, 'solicitacao-passageiro.html')
-
-
-def mototaxista_aceite(request):
-    solicitacoes = Solicitacao.objects.filter()
+    if request.user.is_authenticated is False:
+        return redirect('login')
+    if request.user.groups.filter(name='mototaxista').exists():
+        mototaxista = MyUser.objects.filter(id=request.user.id).get()
+        viagem_em_andamento = Conclusao_Viagem.objects.filter(concluido=False, solicitacao__in=Mototaxista_Aceite.objects.filter(mototaxista=mototaxista, aceite=True).values('solicitacao'))
+        if viagem_em_andamento:
+            return redirect('')
     # if request.POST:
-    #     mototaxista_aceitou = Mototaxista_Aceite(
-    #         solicitacao = Solicitacao.objects.filter(id = id_solicitacao),
-    #         mototaxista = Mototaxista.objects.filter(id = id_mototaxista),
+    #     passageiro = MyUser.objects.filter(id = request.user.id)
+    #     ponto_partida = request.POST["ponto_partida"]
+    #     ponto_destino = request.POST["ponto_destino"]
+    #     solicitacao = Solicitacao(
+    #         passageiro = passageiro,
+    #         ponto_partida = ponto_partida,
+    #         ponto_destino = ponto_destino
     #     )
-    #     if request.POST['aceite'] is True:
-    #         mototaxista_aceitou.save()
-    #         return redirect('viagem:tela_viagem')
-    return render(request, 'solicitacao-mototaxista.html', context={
-        'solicitacoes': solicitacoes,
-    })
+    #     solicitacao.save()
+    return render(request, 'solicitacao.html')
+
+def muda_disponibilidade(request, id):
+    usuario = MyUser.objects.filter(id=id).get()
+    if usuario.disponibilidade is False:
+        usuario.disponibilidade = True
+    else:
+        usuario.disponibilidade = False
+    usuario.save()
+    return redirect('viagem:solicitacao_viagem')
 
 def tela_viagem(request, id):
     mototaxista_id = request.user.id

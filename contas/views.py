@@ -3,7 +3,9 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from .forms import CustomUserCreationForm
-
+from .models import MyUser
+from pi23_motozun import roles
+from rolepermissions.roles import assign_role
 
 
 
@@ -34,6 +36,11 @@ def register_view(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
+            usuario = MyUser.objects.filter(email=request.POST['email']).get()
+            if int(request.POST['cargo']) == 1:
+                assign_role(usuario, roles.Passageiro)
+            else:
+                assign_role(usuario, roles.Mototaxista)
             return render(request, 'login.html') # Redirecione para a página de login
     else:
         form = CustomUserCreationForm()

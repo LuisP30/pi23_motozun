@@ -134,6 +134,4 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL ='/'
 LOGOUT_REDIRECT_URL ='/'
 
-
-
-
+ROLEPERMISSIONS_MODULE = 'pi23_motozun.roles'
