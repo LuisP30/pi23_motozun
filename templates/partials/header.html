@@ -10,12 +10,46 @@
         height: 40px;
         border-radius: 15px;
     }
+    @media screen and (max-width: 1000px){
+        .cadastro-colaborador{
+            display: none;
+        }
+    }
+    @media screen and (max-width:635px) {
+        li{
+            font-size: 10px;
+        }
+        .logo-header{
+            width: 80px;
+        }
+        
+    }
+    @media screen and (max-width: 410px){
+        .topoum, .topotres{
+            display: none;
+        }
+        .topodois{
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    }
+    @media screen and (max-width:300px) {
+    header{
+        height: 30px;
+    }
+    .topodois{
+        font-size: 7px;
+    }
+    .logo-header{
+        width: 50px;
+    }
+}
     
 </style>
 {% endblock %}
 <header>
     <div class="logotipo">
-        <a href=""><img src="{% static 'img/logomarca.png' %}" alt="" width="120px"></a>
+        <a href=""><img class="logo-header" src="{% static 'img/logomarca.png' %}" alt="" width="120px"></a>
     </div>
 
     <nav class="menu">
@@ -29,7 +63,7 @@
             {% endif %}
             <li>SOBRE-NOS</a></li>
         </ul>
-    </nav>
+   
         <div class="cadastro-colaborador">
             <div class="botao-colaborador">
                 {% if not user.is_authenticated %}
@@ -41,5 +75,5 @@
   
             </div>
         </div>
-
+     </nav>
 </header>

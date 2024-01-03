@@ -46,8 +46,8 @@ def muda_disponibilidade(request, id):
 def tela_viagem(request, id):
     mototaxista_id = request.user.id
     solicitacao = Solicitacao.objects.filter(id=id)
-    mototaxista = Mototaxista.objects.filter(id = mototaxista_id)
-    mototaxista_aceite = Mototaxista(
+    mototaxista = mototaxista.objects.filter(id = mototaxista_id)
+    mototaxista_aceite = mototaxista(
         solicitacao = solicitacao,
         mototaxista = mototaxista,
         aceite = True

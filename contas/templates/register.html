@@ -4,25 +4,37 @@
 {% block css_interno %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <style type="text/css">
-        body
-        {
+        body{
+            display: grid;
+            flex-direction: column;
+            height: 100vh;
+            padding-bottom: 100px; 
             background-color: #27343E;
-        }
-        .imagem{
-            position: relative;
-            margin-top: 120px;
+        }   
+        .imagem-logo{
+            position: absolute;
+            margin-top: 25px;
            
         }
         .container{
-            margin-top: 75px;
-            margin-bottom: 200px;
-            position: absolute;
+            margin-bottom: 150px;
+            position: relative;
         }
-       
-        h4{
+        header{
+            position: static;
+            margin-top: 0px;
+            height: 70px;
+        }
+         .rodape{
+            position: absolute;
+         }
+
+        .texto-principal{
             font-size: 1cm;
             text-align: center;
             color: #27343E;
+            font-weight: bold;
+            
         }
         .fazer{
             text-decoration: none;
@@ -48,6 +60,50 @@
             font-weight:bold;
             height: 460px;
             margin-top: -10px;
+        }
+        @media screen and (max-width:992px) {
+            .coluna{
+                width: 400px;
+                margin-top: 50px;
+            }
+            .texto-principal{
+                font-size: 30px;
+            }
+        }
+        @media screen and (max-width:450px) {
+            .coluna{
+                width: 250px;
+                height: 450px;
+            }
+            .imagem-logo{
+                width: 150px;
+                margin-top: -50px;
+            }
+            .botao{
+                font-size: 10px;
+            }
+            .btn{
+                height: 25px;
+            }
+            .fazer{
+                font-size: 10px;
+            }
+            .texto-principal{
+                font-size: 20px;
+                font-weight: bolder;
+            }
+            form{
+                font-size: 15px;
+                gap: -10px;
+            }
+            input{
+                height: 25px;
+                border: solid #27343E ;
+            }
+            .container{
+                margin-top: -120px;
+            }
+
         }
     </style>
     {% block title %}<title>Cadastro</title> {% endblock title %}

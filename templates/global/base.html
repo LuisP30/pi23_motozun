@@ -17,16 +17,16 @@
 
 </head>
 <body>
-
-    {% include "partials/header.html" %}
-
+    <header>
+        {% include "partials/header.html" %}
+    </header>
     <main>
-        {% block conteudo %} {# Bloco para conteúdo #}
+        {% block conteudo %}
         
         {% endblock conteudo %}
     </main>
-
-    {% include "partials/footer.html" %}
-
+    <footer>
+        {% include "partials/footer.html" %}
+    </footer>
 </body>
 </html>

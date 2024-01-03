@@ -1,75 +1,96 @@
 {% block css_interno %}
 <style type="text/css">
 
+
 .footer-content{
     display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
+    justify-content: space-evenly;
+    flex-direction: row;
+    
 }
 
-.footer-list{
-    display: flex;
-    justify-content:space-around;
-    flex-direction: row;
-}
 .blocoum{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction:row;
+    gap: 25px;
     
 }
-.blocodois{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
 
-}
-.footer-list ul{
-    display: flex;
-    flex-direction: row;
-    margin-top: 1px;
-}
-
-h2{
+.texto-rodape{
     color: #F9A72B;
     font-size: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
 }
-footer{
-
-    height: 10%;
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    
+.rodape{
+    height: 60px;
+    margin-top: 20px;
 }
 a{
     text-decoration: none;
+}
+.region-footer{
+    color: #F9A72B;
+    font-weight: bolder;
+    width: 100%;
+}
+@media screen and (max-width: 995px) {
+    .texto-rodape{
+        font-size: 15px;
+    }
+    small{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 525px) {
+    .texto-rodape{
+        font-size: 10px;
+    }
+    small{
+        font-size: 7px;
+    }
+}
+@media screen and (max-width: 390px) {
+    .blocoum{
+        gap: 15px;
+    }
+    small{
+        font-size: 5px;
+    }
+    .texto-rodape{
+        font-size: 7px;
+    }
+}
+@media screen and (max-width:250px) {
+    .texto-rodape{
+        font-size:5px
+    }
+    .rodape{
+        height: 20px;
+    }
+    small{
+        font-size: 3px;
+    }
 }
 
 </style>
 {% endblock %}
 
-<footer>
+<footer class="rodape">
     <div class="footer-content">
         <div class="footer-list">
             <div class="blocoum">
-           
-                <a href=""><h2>Politicas de Uso</h2></a>
-                <a href=""><h2>Acesse sua Conta</h2></a>
+                <div><a href=""><h2 class="texto-rodape">Politicas de Uso</h2></a></div>
+                <div><a href=""><h2 class="texto-rodape">Acesse sua Conta</h2></a></div>
                 <!-- {% if not user.is_authenticated %}
                 <a href="{% url 'cadastro' %}"><h2>Cadastre-se</h2></a>
                 {% endif %} -->
-                
-           
-                <a href=""><h2>Trabalhe Conosco</h2></a>
-                <a href=""><h2>Quem somos</h2></a>
+                <div><a href=""><h2 class="texto-rodape">Trabalhe Conosco</h2></a></div>
+                <div><a href=""><h2 class="texto-rodape">Quem somos</h2></a></div>
                 <!-- {% if not user.is_authenticated %}
                 <a href="{% url 'login' %}">Login</a>
                 {% endif %} -->
-            
             </div>
+        </div>
     </div>
     <div class="region-footer">
         <small>&copy; 2023 MOTOZUN | - Nenhum direito reservado.</small>
