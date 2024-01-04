@@ -5,21 +5,36 @@
 <style type="text/css">
     .container
     {
-        height: 70%;
-        width: 100%;
+        margin-top: 100px;
+        height: 60%;
+        width: 500px;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
         top: 10%;
-        color: white;
+        color: #27343E;
         flex-direction: column;
+        background-color: #FFB923;
+        border-radius: 30px;
     }
     .info-solicitacao, form
     {
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+    .texto{
+        font-size: 20px;
+    }
+    .botao{
+        background-color: white;
+        color: #27343E;
+        border-radius: 5px;
+        height: 35px;
+    }
+    small{
+        font-weight: bold;
     }
 </style>
 {% endblock css_interno %}
@@ -32,14 +47,14 @@
         <hr>
         <div class="info-solicitacao">
 
-                <p><b>Ponto de Partida: </b>{{ solicitacao.ponto_partida }}</p>
-                <p><b>Ponto de Destino: </b>{{ solicitacao.ponto_destino }}</p>
-                <p><b>Distância em KM: </b>{{ solicitacao.distancia }}</p>
-                <p><b>Tempo estimado: </b>{{ solicitacao.duracao }}</p>
+                <p class="texto"><b>Ponto de Partida: </b>{{ solicitacao.ponto_partida }}</p>
+                <p class="texto"><b>Ponto de Destino: </b>{{ solicitacao.ponto_destino }}</p>
+                <p class="texto"><b>Distância em KM: </b>{{ solicitacao.distancia }}</p>
+                <p class="texto"><b>Tempo estimado: </b>{{ solicitacao.duracao }}</p>
                 <small>Aguarde um mototaxista aceitar sua viagem</small>
                 <form action="" method="post">
                     <br>
-                    <input type="submit" value="Cancelar viagem">
+                    <input class="botao" type="submit" value="Cancelar viagem">
                 </form>
 
         </div>
