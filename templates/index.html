@@ -175,18 +175,17 @@
 {% block conteudo %}
 {% include "partials/secao-fundo.html" %}
 <main>
-    <div class="pai">
-        <div class="inicial">
-            <div class="cadastre"> 
-                <h2 class="grande">CADASTRE-SE</h2>
-                <a class="setinha-fundo" href="{% url 'cadastro'%}"><img class="setinha" src="{% static 'img/setinha.png'%}" alt=" setinha para redirecionar para cadastro" width="50px"></a>
+        <div class="pai">
+            <div class="inicial">
+                <div class="cadastre"> 
+                    <h2 class="grande">CADASTRE-SE</h2>
+                    <a class="setinha-fundo" href="{% url 'cadastro'%}"><img class="setinha" src="{% static 'img/setinha.png'%}" alt=" setinha para redirecionar para cadastro" width="50px"></a>
+                </div>
+                <div class="logue"> 
+                    <h2 class="grande">LOGIN</h2> 
+                    <a class="setinha-fundo" href="{% url 'cadastro'%}"><img class="setinha" src="{% static 'img/setinha.png'%}" alt=" setinha para redirecionar para cadastro" width="50px"></a>
+                </div>
             </div>
-            <div class="logue"> 
-                <h2 class="grande">LOGIN</h2> 
-                <a class="setinha-fundo" href="{% url 'cadastro'%}"><img class="setinha" src="{% static 'img/setinha.png'%}" alt=" setinha para redirecionar para cadastro" width="50px"></a>
-            </div>
-        </div>
-
         <div class="imagem">
             <a href="{% url 'cadastro' %}"><img class="anuncio-1" src="{% static 'img/anuncio 1.png' %}" alt="" width="750px"></a>
             <div class="alinhamento">

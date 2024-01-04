@@ -1,31 +1,51 @@
 {% extends "global/base.html" %}
+{% load permission_tags %}
 
 {% block css_interno %}
+<meta http-equiv="refresh" content="7">
     <style type="text/css">
         .container
         {
             height: 30%;
             width: 100%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             position: relative;
-            top: 10%;
+            top: 35%;
+            color: white;
+        }
+        div form
+        {
+            display: flex;
+            justify-content: center;
         }
     </style>
 {% endblock css_interno %}
 
 
-{% block titulo %}Solicitar Viagem{% endblock titulo %}
+{% block titulo %}Viagem em Andamento{% endblock titulo %}
 
 
 {% block conteudo %}
     <div class="container">
-        <p><b>Ponto de partida:</b>{{ solicitacao.ponto_partida }}</p>
-        <p><b>Ponto de destino:</b>{{ solicitacao.ponto_destino }}</p>
-        <p><b>Hora solicitada:</b>{{ solicitacao.data_hora_solicitada }}</p>
-        <p>Tempo Estimado</p>
-        <p>Distância em KM</p>
-        <input type="submit" value="Concluir" name="aceite">
+        <h1>Viagem em andamento</h1>
+        <br>
+        {% for solicitacao in solicitacoes %}
+        <div>
+            <p><b>Ponto de partida: </b>{{ solicitacao.ponto_partida }}</p>
+            <p><b>Ponto de destino: </b>{{ solicitacao.ponto_destino }}</p>
+            <p><b>Hora solicitada: </b>{{ solicitacao.data_hora_solicitada }}</p>
+            <p><b>Tempo Estimado: </b></p>
+            <p><b>Distância em KM: </b></p>
+            {% if user|has_role:'mototaxista' %}
+                <form action="{% url 'viagem:viagem_concluida' solicitacao.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Concluir" name="aceite">
+                </form>
+            {% endif %}
+        </div>
+        {% endfor %}
     </div>
 {% endblock conteudo %}

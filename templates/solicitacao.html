@@ -20,6 +20,8 @@
             height: 100%;
             display: flex;
             justify-content: center;
+            position: relative;
+            top: 15%;
             align-items: center;
             width: 40%;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
@@ -48,11 +50,15 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: relative;
+            top: 10%;
+            color: white;
             gap: 55px;
         }
         .disponibilidade
         {
             display: flex;
+            color: white;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -75,6 +81,7 @@
     {% if user|has_role:'passageiro' %}
         <section class="container-viagem">
             <form action="" method="POST">
+                {% csrf_token %}
                 <div class="ponto-viagem">
                     <label for="partida"><h1>SELECIONE O PONTO DE PARTIDA</h1></label>
                     <br>
@@ -90,6 +97,7 @@
                         <input class="input-viagem" type="text" name="destino">
                     </div>
                 </div>
+                <br>
                 <input type="submit" value="Solicitar">
             </form>
         </section>
@@ -107,17 +115,17 @@
                     {% endif %}
                 </form>
             </div>
-            <hr>
+
             <div class="solicitacoes">
                 {% if user.disponibilidade %}
                     <h1>Solicitações</h1>
                     {% for solicitacao in solicitacoes %}
-                        <p><b>Passageiro: </b>{{ solicitacao.usuario.nome }}</p>
+                        <p><b>Passageiro: </b>{{ solicitacao.passageiro.nome }}</p>
                         <p><b>Ponto de partida: </b>{{ solicitacao.ponto_partida }}</p>
                         <p><b>Ponto de destino: </b>{{ solicitacao.ponto_destino }}</p>
                         <p><b>Hora solicitada: </b>{{ solicitacao.data_hora_solicitada }}</p>
 
-                        <a href="{% url 'viagem:tela_viagem' solicitacao.id %}"><input type="submit" value="Aceitar" name="aceite"></a>
+                        <a href="{% url 'viagem:viagem_aceita' solicitacao.id %}"><input type="submit" value="Aceitar" name="aceite"></a>
                         <hr>
                     {% empty %}
                         <p>Nenhuma solicitação aberta</p>
