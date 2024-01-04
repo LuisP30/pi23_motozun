@@ -5,6 +5,8 @@ class Solicitacao(models.Model):
     passageiro = models.ForeignKey(MyUser, on_delete = models.CASCADE)
     ponto_partida = models.CharField( 'Ponto de partida', max_length=100, null = False)
     ponto_destino = models.CharField( 'Ponto de destino', max_length=100, null = False)
+    duracao = models.CharField(max_length=100, null = True)
+    distancia = models.CharField(max_length=100, null = True)
     data_hora_solicitada = models.DateTimeField('Data e hora de solicitação', auto_now_add = True)
 
 class Mototaxista_Aceite(models.Model):

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.core.exceptions import ObjectDoesNotExist
 import googlemaps
+from pi23_motozun import settings
 
 def home(request):
     return render(request, 'index.html')
@@ -82,7 +83,20 @@ def tela_espera(request, id):
         if solicitacoes_sem_aceite:
             if solicitacoes_sem_aceite.id != id:
                 return redirect('viagem:tela_espera', id=solicitacoes_sem_aceite.id)
-        solicitacao = Solicitacao.objects.filter(id=id)
+        solicitacao = Solicitacao.objects.filter(id=id).get()
+        # API do Google Maps
+        if solicitacao.duracao is None and solicitacao.distancia is None:
+            gmaps = googlemaps.Client(key = settings.GOOGLE_API_KEY)
+            calculate = gmaps.distance_matrix(
+                f'{solicitacao.ponto_partida} Canguaretama',
+                f'{solicitacao.ponto_destino} Canguaretama',
+                mode = 'driving'
+            )
+            duracao = calculate['rows'][0]['elements'][0]['duration']['text']
+            distancia = calculate['rows'][0]['elements'][0]['distance']['text']
+            solicitacao.duracao = duracao
+            solicitacao.distancia = distancia
+            solicitacao.save()
         return render(request, 'tela_espera.html', context={
             'solicitacao': solicitacao,
         })

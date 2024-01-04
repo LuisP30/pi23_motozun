@@ -37,8 +37,8 @@
             <p><b>Ponto de partida: </b>{{ solicitacao.ponto_partida }}</p>
             <p><b>Ponto de destino: </b>{{ solicitacao.ponto_destino }}</p>
             <p><b>Hora solicitada: </b>{{ solicitacao.data_hora_solicitada }}</p>
-            <p><b>Tempo Estimado: </b></p>
-            <p><b>Distância em KM: </b></p>
+            <p><b>Tempo Estimado: </b>{{ solicitacao.duracao }}</p>
+            <p><b>Distância em KM: </b>{{ solicitacao.distancia }}</p>
             {% if user|has_role:'mototaxista' %}
                 <form action="{% url 'viagem:viagem_concluida' solicitacao.id %}" method="post">
                     {% csrf_token %}

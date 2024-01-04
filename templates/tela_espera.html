@@ -31,16 +31,17 @@
         <h1>Sua solicitação:</h1>
         <hr>
         <div class="info-solicitacao">
-            {% for info in solicitacao %}
-                <p><b>Ponto de Partida: </b>{{ info.ponto_partida }}</p>
-                <p><b>Ponto de Destino: </b>{{ info.ponto_destino }}</p>
-                <p><b>Valor: </b>{{ info.valor }}</p>
+
+                <p><b>Ponto de Partida: </b>{{ solicitacao.ponto_partida }}</p>
+                <p><b>Ponto de Destino: </b>{{ solicitacao.ponto_destino }}</p>
+                <p><b>Distância em KM: </b>{{ solicitacao.distancia }}</p>
+                <p><b>Tempo estimado: </b>{{ solicitacao.duracao }}</p>
                 <small>Aguarde um mototaxista aceitar sua viagem</small>
                 <form action="" method="post">
                     <br>
                     <input type="submit" value="Cancelar viagem">
                 </form>
-            {% endfor %}
+
         </div>
     </div>
 {% endblock conteudo %}

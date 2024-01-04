@@ -2,6 +2,10 @@
 {% load permission_tags %}
 
 {% block css_interno %}
+{% if user|has_role:"mototaxista" %}
+    <meta http-equiv="refresh" content="7">
+{% endif %}
+
     <style type="text/css">
         .container
         {
@@ -120,10 +124,11 @@
                 {% if user.disponibilidade %}
                     <h1>Solicitações</h1>
                     {% for solicitacao in solicitacoes %}
-                        <p><b>Passageiro: </b>{{ solicitacao.passageiro.nome }}</p>
                         <p><b>Ponto de partida: </b>{{ solicitacao.ponto_partida }}</p>
                         <p><b>Ponto de destino: </b>{{ solicitacao.ponto_destino }}</p>
                         <p><b>Hora solicitada: </b>{{ solicitacao.data_hora_solicitada }}</p>
+                        <p><b>Tempo Estimado: </b>{{ solicitacao.duracao }}</p>
+                        <p><b>Distância em KM: </b>{{ solicitacao.distancia }}</p>
 
                         <a href="{% url 'viagem:viagem_aceita' solicitacao.id %}"><input type="submit" value="Aceitar" name="aceite"></a>
                         <hr>
