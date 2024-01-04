@@ -14,6 +14,7 @@ class MyUserAdmin(UserAdmin):#customização do admin pro usuario
         ('Personal info', {'fields': ('first_name', 'last_name')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions',)}),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
+        ('Disponibilidade', {'fields': ('disponibilidade',)}),
 )
     #quando cria um usuario
 add_fieldsets = (

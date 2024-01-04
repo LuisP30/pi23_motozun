@@ -1,0 +1,46 @@
+{% extends "global/base.html" %}
+
+{% block css_interno %}
+<meta http-equiv="refresh" content="7">
+<style type="text/css">
+    .container
+    {
+        height: 70%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 10%;
+        color: white;
+        flex-direction: column;
+    }
+    .info-solicitacao, form
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+</style>
+{% endblock css_interno %}
+
+{% block titulo %}Aguarde{% endblock titulo %}
+
+{% block conteudo %}
+    <div class="container">
+        <h1>Sua solicitação:</h1>
+        <hr>
+        <div class="info-solicitacao">
+            {% for info in solicitacao %}
+                <p><b>Ponto de Partida: </b>{{ info.ponto_partida }}</p>
+                <p><b>Ponto de Destino: </b>{{ info.ponto_destino }}</p>
+                <p><b>Valor: </b>{{ info.valor }}</p>
+                <small>Aguarde um mototaxista aceitar sua viagem</small>
+                <form action="" method="post">
+                    <br>
+                    <input type="submit" value="Cancelar viagem">
+                </form>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock conteudo %}
