@@ -13,7 +13,7 @@
         }   
         .imagem-logo{
             position: absolute;
-            margin-top: 25px;
+            margin-top: 50px;
            
         }
         .container{
@@ -44,6 +44,7 @@
              background-color: #F9A72B;
              border-radius: 30px;
              width: 500px;
+             height: 560px;
         }
         .btn{
             background-color: #27343E;
@@ -61,6 +62,15 @@
             height: 460px;
             margin-top: -10px;
         }
+        .selecao{
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .cargo{
+            width: 50px;
+        }
         @media screen and (max-width:992px) {
             .coluna{
                 width: 400px;
@@ -73,11 +83,12 @@
         @media screen and (max-width:450px) {
             .coluna{
                 width: 250px;
-                height: 450px;
+                height: 460px;
+                margin-top: 150px;
             }
             .imagem-logo{
                 width: 150px;
-                margin-top: -50px;
+                margin-top: 50px;
             }
             .botao{
                 font-size: 10px;
@@ -105,34 +116,88 @@
             }
 
         }
+        @media screen and (max-width:275px) {
+            .container{
+                display: flex;
+                justify-content: center;
+                margin-top: 50px;
+            }
+            .coluna{
+                width: 150px;
+                height: 0px;
+                margin-top: 150px;
+                color: aliceblue;
+                border-radius: 10px;
+            }
+            .imagem-logo{
+                width: 100px;
+                margin-top: 60px;
+            }
+            .botao{
+                font-size: 8px;
+                background-color: #F9A72B;
+                height: 13px;
+                border-radius: 10px;
+            }
+            .btn{
+                border: 0px;
+                height: 0px;
+            }
+            .fazer{
+                font-size: 5px;
+            }
+            .texto-principal{
+                font-size: 12px;
+                font-weight: bolder;
+            }
+            form{
+                font-size: 8px;
+                font-weight: bolder;
+            }
+            input{
+                height: 20px;
+                border: solid #27343E ;
+                margin-top: -20px;
+            }
+            .container{
+                margin-top: -120px;
+            }
+            .row{
+                color: #F9A72B;
+            }
+
+        }
     </style>
     {% block title %}<title>Cadastro</title> {% endblock title %}
 {% endblock css_interno %}
 
 {% block conteudo %}
 
-<img class="imagem" src="{% static 'img/logomarca.png'%}" alt="logomarca" width="250px">
+<img class="imagem-logo" src="{% static 'img/logomarca.png'%}" alt="logomarca" width="250px">
 <div class="container col-xl-10 col-xxl-8 px-4 py-5">
-        <div class="row g-lg-5 py-5">
-            <div class="coluna col-md-10 mx-auto col-lg-5 p-4 p-md-5 rounded-4  shadow-sm">
-    <form class="row" method="post" action="{% url 'cadastro' %}">
-        {% csrf_token %}
-        <h4>Criar uma Conta</h4>
-        {{ form }}
-        <br>
-        Eu sou:
-        <select name="cargo" id="">
-            <option value="1">Passageiro</option>
-            <option value="2">Mototaxista</option>
-        </select>
-        <button class="btn btn-primary mt-3" type="submit"> <p class="botao">REGISTRAR</p></button>
-        <div class="mt-3">
-            <span>
-                <a  href="{% url 'login' %}" class="link-dark"><p class="fazer"><strong>Fazer Login ←</strong></p></a>
-                
-            </span>
+    <div class="row g-lg-5 py-5">
+        <div class="coluna col-md-10 mx-auto col-lg-5 p-4 p-md-5 rounded-4  shadow-sm">
+         <form class="row" method="post" action="{% url 'cadastro' %}">
+          {% csrf_token %}
+          <h4 class="texto-principal">Criar uma Conta</h4>
+          {{ form }}
+          <br>
+            <div class="selecao">
+                Eu sou:
+                <select name="cargo" id="">
+                    <option value="1">Passageiro</option>
+                    <option value="2">Mototaxista</option>
+                </select>
+            </div>
+            <button class="btn btn-primary mt-3" type="submit"> <p class="botao">REGISTRAR</p></button>
+            <div class="mt-3">
+                <span>
+                    <a  href="{% url 'login' %}" class="link-dark"><p class="fazer"><strong>Fazer Login ←</strong></p></a>
+                </span>
+            </div>
+          </form>
         </div>
-    </form>
+    </div>
 </div>
 
 
