@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import *
 from django.core.exceptions import ObjectDoesNotExist
+import googlemaps
 
 def home(request):
     return render(request, 'index.html')
@@ -16,9 +17,11 @@ def solicitacao_viagem(request):
         if viagem_em_andamento:
             for viagem in viagem_em_andamento:               
                 return redirect('viagem:tela_viagem', id=viagem.id)
-        solicitacoes = Mototaxista_Aceite.objects.filter(aceite=False, solicitacao__in=Solicitacao.objects.all())
+        solicitacoes_aceitas = Mototaxista_Aceite.objects.values('solicitacao_id')
+        solicitacoes_sem_aceite = Solicitacao.objects.exclude(id__in=solicitacoes_aceitas)
+
         return render(request, 'solicitacao.html', context={
-            'solicitacoes': solicitacoes,
+            'solicitacoes': solicitacoes_sem_aceite,
         })
     # Instruções de passageiro:
     # Verificando grupo do usuário e se tem viagem em andamento
